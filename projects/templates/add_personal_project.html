@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Projet Personnel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #0a1723;
+            margin: 20px 0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-left: -10px;
+        }
+        button {
+            background: #4facfe;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #3a8ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ajouter un Projet Personnel</h1>
+    <div class="form-container">
+        <form method="POST" action="{% url 'add_personal_project' %}">
+            {% csrf_token %}
+            <label for="name">Nom du projet :</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="technologies">Technologies :</label>
+            <textarea id="technologies" name="technologies" rows="3" required></textarea>
+            
+            <label for="semester">Semestre :</label>
+            <input type="text" id="semester" name="semester" required>
+            
+            <label for="students_count">Nombre d'étudiants :</label>
+            <input type="number" id="students_count" name="students_count" required>
+            
+            <button type="submit">Ajouter le Projet</button>
+        </form>
+    </div>
+</body>
+</html>

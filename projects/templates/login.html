@@ -3,17 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Login</title>
+    <style>
+        /* Général */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Conteneur principal */
+        form {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Champs de formulaire */
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="email"],
+        form select,
+        form textarea {
+            width: calc(100% - 20px); /* Réduction de la largeur pour compenser le décalage */
+            padding: 10px 15px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            margin-right: 10px; /* Décalage vers la droite */
+            transition: border 0.3s ease;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="password"]:focus,
+        form input[type="email"]:focus,
+        form select:focus,
+        form textarea:focus {
+            border-color: #4facfe;
+        }
+
+        /* Bouton de soumission */
+        form button {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        form button:hover {
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            transform: translateY(-2px);
+        }
+
+        form button:active {
+            transform: translateY(0);
+        }
+
+        /* Lien vers la création d'un compte */
+        .create-account {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .create-account a {
+            color: #4facfe;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .create-account a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    {% extends 'base.html' %}
-{% block content %}
-<h2>Connexion</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Se connecter</button>
-</form>
-{% endblock %}
+    <form method="post">
+        <h2>Connexion</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Se connecter</button>
+        <div class="create-account">
+            <p>Pas encore de compte ? <a href="{% url 'register' %}">S'inscrire</a></p>
+        </div>
+    </form>
 </body>
 </html>
