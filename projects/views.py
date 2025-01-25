@@ -7,6 +7,10 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Group
 
+from django.views.decorators.cache import never_cache
+from django.contrib import messages
+
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -40,10 +44,21 @@ def register(request):
 
     return render(request, 'register.html')
 
+@never_cache
 def home(request):
+    # Vous pouvez ajouter un message conditionnel ici, si nécessaire
+    if not request.user.is_authenticated:
+        messages.warning(request, "Vous devez vous connecter pour accéder à cette page.")
+
     return render(request, 'home.html')
 
+@never_cache
+def group_list(request):
+    groups = Group.objects.all()
+    return render(request, 'group_list.html', {'groups': groups})
 
+
+@never_cache
 def project_list(request):
     # Récupérer tous les projets SupNum et Personnel
     supnum_projects = SupNumProject.objects.all()
@@ -51,21 +66,19 @@ def project_list(request):
 
     # Rendre les projets SupNum dans la page supnum_projects.html
     if 'supnum' in request.path:
-        return render(request, 'supnum_projects.html', {
-            'supnum_projects': supnum_projects
-        })
+        return render(request, 'supnum_projects.html', {'supnum_projects': supnum_projects})
 
     # Rendre les projets personnels dans la page personal_projects.html
     elif 'personal' in request.path:
-        return render(request, 'personal_projects.html', {
-            'personal_projects': personal_projects
-        })
-    
-    # Si aucune condition n'est remplie, renvoyer une page par défaut ou un message d'erreur
+        return render(request, 'personal_projects.html', {'personal_projects': personal_projects})
+
+    # Par défaut, rendre une page générale
     return render(request, 'project_list.html', {
         'supnum_projects': supnum_projects,
         'personal_projects': personal_projects
     })
+
+
 
 def add_personal_project(request):
     if not request.user.is_superuser:
@@ -87,9 +100,3 @@ def add_personal_project(request):
 
     return render(request, 'add_personal_project.html')
 
-
-
-
-def group_list(request):
-    groups = Group.objects.all()
-    return render(request, 'group_list.html', {'groups': groups})
