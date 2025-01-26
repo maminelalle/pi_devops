@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <style>
+        /* Corps général */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Titre principal */
+        h1 {
+            text-align: center;
+            color: #0a1723; /* Couleur principale */
+            font-size: 40px;
+            margin: 40px 0;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Paragraphe principal */
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 1000px;
+            color: #555;
+        }
+
+        /* Conteneur des sections */
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            transition: all 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-section img {
+            width: 200px;  /* Agrandir les images */
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .content-section img:hover {
+            transform: scale(1.1);
+        }
+
+        .content-section div {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .content-section h3 {
+            font-size: 24px;
+            color: #4facfe;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* Section responsive */
+        @media (max-width: 768px) {
+            .content-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content-section img {
+                margin: 0 auto 15px;
+                width: 80%;  /* Images plus petites sur mobile */
+            }
+
+            .content-section div {
+                margin-left: 0;
+            }
+        }
+
+        /* Style des titres des sections */
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #0a1723;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% load static %}
+
+    {% block content %}
+    <h1>Bienvenue dans l'Application PI</h1>
+    <p>Conseils pour un bon projet : Planifiez vos étapes, identifiez les objectifs clairs et respectez les bonnes pratiques de développement.</p>
+
+    <!-- Optimiser image -->
+    <div class="content-section">
+        <img src="{% static 'images/optimiser.webp' %}" alt="Optimisation">
+        <div>
+            <h3>7 étapes pour optimiser votre application web</h3>
+            <p>Optimisez votre application avec des techniques modernes : réduction de la taille des fichiers, utilisation de CDN, minimisation du code, et plus encore pour améliorer la performance.</p>
+        </div>
+    </div>
+
+    <!-- Smart méthode image -->
+    <div class="content-section">
+        <img src="{% static 'images/smart.png' %}" alt="Méthode SMART">
+        <div>
+            <h3>Méthode SMART pour développer une application</h3>
+            <p>Utilisez des objectifs SMART (Spécifiques, Mesurables, Atteignables, Réalistes, Temporels) pour organiser efficacement vos projets et garantir le succès.</p>
+        </div>
+    </div>
+
+    <h2>Langages de programmation</h2>
+
+    <!-- Python -->
+    <div class="content-section">
+        <img src="{% static 'images/python.jpeg' %}" alt="Python">
+        <div>
+            <h3>Python</h3>
+            <p>Python est un langage simple et puissant. Avantages : lisibilité, communauté riche, frameworks comme Django. Inconvénients : performance lente pour des tâches intensives.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="content-section">
+        <img src="{% static 'images/js.webp' %}" alt="JavaScript">
+        <div>
+            <h3>JavaScript</h3>
+            <p>JavaScript est essentiel pour les interfaces interactives. Avantages : grande flexibilité. Inconvénients : complexité croissante pour les applications modernes.</p>
+        </div>
+    </div>
+
+    <!-- HTML -->
+    <div class="content-section">
+        <img src="{% static 'images/html.png' %}" alt="HTML">
+        <div>
+            <h3>HTML</h3>
+            <p>HTML est la base de tout site web. Avantages : essentiel, simple. Inconvénients : dépendant des autres langages pour des fonctionnalités avancées.</p>
+        </div>
+    </div>
+
+    <!-- SCSS -->
+    <div class="content-section">
+        <img src="{% static 'images/scss.png' %}" alt="SCSS">
+        <div>
+            <h3>SCSS</h3>
+            <p>SCSS améliore CSS avec des fonctionnalités avancées. Avantages : organisation, réutilisation. Inconvénients : nécessite une étape de compilation.</p>
+        </div>
+    </div>
+
+    <!-- PHP -->
+    <div class="content-section">
+        <img src="{% static 'images/php.png' %}" alt="PHP">
+        <div>
+            <h3>PHP</h3>
+            <p>PHP est populaire pour le développement backend. Avantages : simplicité, compatibilité large. Inconvénients : performances inférieures à celles des langages modernes.</p>
+        </div>
+    </div>
+
+    <h2>Outils</h2>
+
+    <!-- Docker -->
+    <div class="content-section">
+        <img src="{% static 'images/docker.webp' %}" alt="Docker">
+        <div>
+            <h3>Docker</h3>
+            <p>Docker permet de containeriser vos applications. Avantages : portabilité. Inconvénients : courbe d'apprentissage initiale.</p>
+        </div>
+    </div>
+
+    <!-- GitHub -->
+    <div class="content-section">
+        <img src="{% static 'images/github.png' %}" alt="GitHub">
+        <div>
+            <h3>GitHub</h3>
+            <p>GitHub est une plateforme pour gérer le code source. Avantages : collaboration facile. Inconvénients : limité sans abonnement pour certaines fonctionnalités avancées.</p>
+        </div>
+    </div>
+
+    {% endblock %}
+
+</body>
+</html>

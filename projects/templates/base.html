@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application PI</title>
+    <style>
+        /* Styles de base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #4facfe, #00f2fe); /* Même couleur que le background */
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #ffdd57; /* Jaune doux au survol */
+            transform: translateY(-2px);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown a {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            font-size: 14px;
+            text-align: left;
+            text-decoration: none;
+            font-weight: normal;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: #4facfe;
+            color: white;
+        }
+
+        /* Afficher le menu déroulant */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Accueil</a>
+        <div class="dropdown">
+            <a href="{% url 'project_list' %}">Projets</a>
+            <div class="dropdown-content">
+                <a href="{% url 'supnum_projects' %}">Projet SupNum</a>
+                <a href="{% url 'group_list' %}">Liste des groups</a>
+            </div>
+        </div>
+        <a href="{% url 'login' %}">Déconnexion</a>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

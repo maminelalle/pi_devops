@@ -1,0 +1,81 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors/>
+  <version>2.479.3</version>
+  <numExecutors>2</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+    <permission>USER:com.cloudbees.plugins.credentials.CredentialsProvider.Create:LalleStorm</permission>
+    <permission>USER:com.cloudbees.plugins.credentials.CredentialsProvider.Delete:LalleStorm</permission>
+    <permission>USER:com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:LalleStorm</permission>
+    <permission>USER:com.cloudbees.plugins.credentials.CredentialsProvider.Update:LalleStorm</permission>
+    <permission>USER:com.cloudbees.plugins.credentials.CredentialsProvider.View:LalleStorm</permission>
+    <permission>USER:hudson.model.Computer.Build:LalleStorm</permission>
+    <permission>USER:hudson.model.Computer.Configure:LalleStorm</permission>
+    <permission>USER:hudson.model.Computer.Connect:LalleStorm</permission>
+    <permission>USER:hudson.model.Computer.Create:LalleStorm</permission>
+    <permission>USER:hudson.model.Computer.Delete:LalleStorm</permission>
+    <permission>USER:hudson.model.Computer.Disconnect:LalleStorm</permission>
+    <permission>USER:hudson.model.Computer.Provision:LalleStorm</permission>
+    <permission>USER:hudson.model.Hudson.Administer:LalleStorm</permission>
+    <permission>GROUP:hudson.model.Hudson.Read:authenticated</permission>
+    <permission>USER:hudson.model.Hudson.Read:anonymous</permission>
+    <permission>USER:hudson.model.Hudson.Read:LalleStorm</permission>
+    <permission>GROUP:hudson.model.Item.Build:authenticated</permission>
+    <permission>USER:hudson.model.Item.Build:LalleStorm</permission>
+    <permission>USER:hudson.model.Item.Cancel:LalleStorm</permission>
+    <permission>USER:hudson.model.Item.Configure:LalleStorm</permission>
+    <permission>USER:hudson.model.Item.Create:LalleStorm</permission>
+    <permission>USER:hudson.model.Item.Delete:LalleStorm</permission>
+    <permission>GROUP:hudson.model.Item.Discover:authenticated</permission>
+    <permission>USER:hudson.model.Item.Discover:LalleStorm</permission>
+    <permission>GROUP:hudson.model.Item.Read:authenticated</permission>
+    <permission>USER:hudson.model.Item.Read:anonymous</permission>
+    <permission>USER:hudson.model.Item.Read:LalleStorm</permission>
+    <permission>USER:hudson.model.Item.Workspace:LalleStorm</permission>
+    <permission>USER:hudson.model.Run.Delete:LalleStorm</permission>
+    <permission>USER:hudson.model.Run.Replay:LalleStorm</permission>
+    <permission>USER:hudson.model.Run.Update:LalleStorm</permission>
+    <permission>USER:hudson.model.View.Configure:LalleStorm</permission>
+    <permission>USER:hudson.model.View.Create:LalleStorm</permission>
+    <permission>USER:hudson.model.View.Delete:LalleStorm</permission>
+    <permission>USER:hudson.model.View.Read:LalleStorm</permission>
+    <permission>USER:hudson.scm.SCM.Tag:LalleStorm</permission>
+    <permission>USER:jenkins.metrics.api.Metrics.HealthCheck:LalleStorm</permission>
+    <permission>USER:jenkins.metrics.api.Metrics.ThreadDump:LalleStorm</permission>
+    <permission>USER:jenkins.metrics.api.Metrics.View:LalleStorm</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>true</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
+  <disableRememberMe>false</disableRememberMe>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULL_NAME}</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
+  <jdks/>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds/>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>all</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+  </views>
+  <primaryView>all</primaryView>
+  <slaveAgentPort>50000</slaveAgentPort>
+  <label></label>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
+  </crumbIssuer>
+  <nodeProperties/>
+  <globalNodeProperties/>
+  <nodeRenameMigrationNeeded>false</nodeRenameMigrationNeeded>
+</hudson>

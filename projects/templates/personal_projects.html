@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets Personnels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #0a1723;
+            margin-top: 20px;
+        }
+        .project-list {
+            margin: 20px auto;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .project {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .project:last-child {
+            border-bottom: none;
+        }
+        .project h3 {
+            margin: 0;
+            color: #4facfe;
+        }
+        .project p {
+            margin: 5px 0;
+        }
+        .add-project-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            background: #4facfe;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .add-project-btn:hover {
+            background: #3a8ccc;
+        }
+    </style>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Projets Personnels{% endblock %}
+    
+    {% block content %}
+        <h1>Liste des Projets Personnels</h1>
+        <div class="project-list">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Nom du projet</th>
+                        <th>Technologies</th>
+                        <th>Semestre</th>
+                        <th>Nombre d'étudiants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in personal_projects %}
+                        <tr>
+                            <td>{{ project.name }}</td>
+                            <td>{{ project.technologies }}</td>
+                            <td>{{ project.semester }}</td>
+                            <td>{{ project.students_count }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">Aucun projet Personnel disponible.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endblock %}
+    
+
+</body>
+</html>
